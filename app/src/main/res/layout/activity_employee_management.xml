@@ -1,54 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmployeeManagementActivity">
+    android:orientation="vertical"
+    tools:context=".EmployeeManagementActivity" >
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="12dp"
-            android:text="@string/title_employeemanagement_title"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:textStyle="bold" />
-
-        <!-- Table hiển thị danh sách Employee -->
-        <TableLayout
-            android:id="@+id/tblEmployees"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*">
+            android:layout_height="match_parent">
 
-            <!-- Header Row -->
-            <TableRow android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:onClick="do_open_employee_healthcare"
+                    android:id="@+id/imgEmployeeHealthcare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_employee_healthcare" />
 
                 <TextView
-                    android:text="@string/title_employeemanagement_id"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
+                    android:id="@+id/txtEMployeeHealthcare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_employee_healthcare"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgEmployeeSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_employee_salary" />
 
                 <TextView
-                    android:text="@string/title_employeemanagement_name"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
+                    android:id="@+id/txtEmployeeSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_employee_salary"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgEmployeePermission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_employee_permission" />
 
                 <TextView
-                    android:text="@string/title_employeemanagement_position"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-            </TableRow>
+                    android:id="@+id/txtEmployeePermission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_employee_permission"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </TableRow>
 
-            <!-- Các dòng dữ liệu sẽ được thêm từ Java bằng code -->
-        </TableLayout>
-    </LinearLayout>
-</ScrollView>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+</LinearLayout>

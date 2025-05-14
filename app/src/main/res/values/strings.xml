@@ -12,53 +12,17 @@
     <string name="title_confirm_exit_ok">YES</string>
     <string name="title_main_employee">Employee</string>
     <string name="title_main_customer">Customer</string>
-    <string name="title_employeemanagement_title">Employee Management</string>
-    <string name="title_employeemanagement_position">Position</string>
-    <string name="title_employeemanagement_name">Name</string>
-    <string name="title_employeemanagement_id">ID</string>
 
-    <string name="emp_name_1">John Doe</string>
-    <string name="emp_name_2">Emma Smith</string>
-    <string name="emp_name_3">Liam Johnson</string>
-    <string name="emp_name_4">Olivia Brown</string>
-    <string name="emp_name_5">Noah Davis</string>
-    <string name="emp_name_6">Sophia Wilson</string>
-    <string name="emp_name_7">Mason Taylor</string>
-    <string name="emp_name_8">Ava Anderson</string>
-    <string name="emp_name_9">Lucas Thomas</string>
-    <string name="emp_name_10">Mia Jackson</string>
-    <string name="emp_name_11">Ethan White</string>
-    <string name="emp_name_12">Isabella Harris</string>
-    <string name="emp_name_13">James Martin</string>
-    <string name="emp_name_14">Charlotte Thompson</string>
-    <string name="emp_name_15">Benjamin Garcia</string>
-    <string name="emp_name_16">Amelia Martinez</string>
-    <string name="emp_name_17">Elijah Robinson</string>
-    <string name="emp_name_18">Emily Clark</string>
-    <string name="emp_name_19">Logan Rodriguez</string>
-    <string name="emp_name_20">Harper Lewis</string>
-    <string name="emp_name_21">Daniel Walker</string>
-    <string name="emp_name_22">Abigail Hall</string>
-    <string name="emp_name_23">Matthew Allen</string>
-    <string name="emp_name_24">Chloe Young</string>
-    <string name="emp_name_25">Jackson Hernandez</string>
-    <string name="emp_name_26">Ella King</string>
-    <string name="emp_name_27">Aiden Wright</string>
-    <string name="emp_name_28">Scarlett Lopez</string>
-    <string name="emp_name_29">Henry Hill</string>
-    <string name="emp_name_30">Grace Scott</string>
-    <string name="emp_name_31">Sebastian Green</string>
-    <string name="emp_name_32">Zoe Adams</string>
-    <string name="emp_name_33">Carter Baker</string>
-    <string name="emp_name_34">Lily Gonzalez</string>
-    <string name="emp_name_35">Jayden Nelson</string>
-    <string name="emp_name_36">Aria Carter</string>
-    <string name="emp_name_37">Gabriel Mitchell</string>
-    <string name="emp_name_38">Penelope Perez</string>
-    <string name="emp_name_39">Anthony Roberts</string>
-    <string name="emp_name_40">Layla Turner</string>
-
-
-    <string name="emp_position_default">Staff</string>
+    <string name="title_employee_healthcare">Healthcare</string>
+    <string name="title_employee_salary">Salary</string>
+    <string name="title_employee_permission">Permission</string>
+    <string name="title_activity_employee_healthcare">Employee Healthcare</string>
+    <string name="title_height">Height:</string>
+    <string name="title_weight">Weight:</string>
+    <string name="title_calculate">Calculate</string>
+    <string name="title_clear">Clear</string>
+    <string name="title_close">Close</string>
+    <string name="title_main_product">Product</string>
+    <string name="title_main_category">Category</string>
 
 </resources>

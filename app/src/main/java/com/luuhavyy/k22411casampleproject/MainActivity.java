@@ -16,8 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgEmployee;
     TextView txtEmployee;
-
-
+    ImageView imgCustomer;
+    TextView txtCustomer;
+    ImageView imgCategory;
+    ImageView imgProduct;
+    TextView txtProduct;
+    TextView txtCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +51,53 @@ public class MainActivity extends AppCompatActivity {
                 openEmployeeManagementActivity();
             }
         });
+        imgCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCustomerManagementActivity();
+            }
+        });
+        txtCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCustomerManagementActivity();
+            }
+        });
+        imgCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCategoryManagementActivity();
+            }
+        });
+        txtCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCategoryManagementActivity();
+            }
+        });
+        imgProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductManagementActivity();
+            }
+        });
+        txtProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductManagementActivity();
+            }
+        });
     }
 
     private void addViews() {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
-
+        imgCustomer=findViewById(R.id.imgCustomer);
+        txtCustomer=findViewById(R.id.txtProduct);
+        imgCategory=findViewById(R.id.imgCategory);
+        imgProduct=findViewById(R.id.imgProduct);
+        txtCategory=findViewById(R.id.txtProduct);
+        txtProduct=findViewById(R.id.txtProduct);
     }
 
     private void openEmployeeManagementActivity()
@@ -60,4 +105,20 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this, EmployeeManagementActivity.class);
         startActivity(intent);
     }
+    private void openCustomerManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, CustomerManagementActivity.class);
+        startActivity(intent);
+    }
+    private void openProductManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, ProductManagementActivity.class);
+        startActivity(intent);
+    }
+    private void openCategoryManagementActivity()
+    {
+        Intent intent=new Intent(MainActivity.this, CategoryManagementActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -1,14 +1,8 @@
 package com.luuhavyy.k22411casampleproject;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,13 +10,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class EmployeeManagementActivity extends AppCompatActivity {
+import com.luuhavyy.models.Customer;
+import com.luuhavyy.models.ListCustomer;
+
+public class CustomerManagementActivity extends AppCompatActivity {
+
+    ListView lvCustomer;
+    ArrayAdapter<Customer> adapter;
+    ListCustomer lc=new ListCustomer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_employee_management);
+        setContentView(R.layout.activity_customer_management);
         addViews();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -32,11 +33,13 @@ public class EmployeeManagementActivity extends AppCompatActivity {
     }
 
     private void addViews() {
+        lvCustomer=findViewById(R.id.lvCustomer);
+        adapter=new ArrayAdapter<>(
+                CustomerManagementActivity.this,
+                android.R.layout.simple_list_item_1);
+        lc.generate_sample_dataset(); // de goi len bo nho man hinh
+        adapter.addAll(lc.getCustomers()); // de no tu dong ve
 
-    }
-
-    public void do_open_employee_healthcare(View view) {
-        Intent intent=new Intent(EmployeeManagementActivity.this, EmployeeHealthcareActivity.class);
-        startActivity(intent);
+        lvCustomer.setAdapter(adapter);
     }
 }

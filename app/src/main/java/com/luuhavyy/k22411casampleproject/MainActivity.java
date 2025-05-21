@@ -93,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
         imgCustomer=findViewById(R.id.imgCustomer);
-        txtCustomer=findViewById(R.id.txtProduct);
-        imgCategory=findViewById(R.id.imgCategory);
+        txtCustomer=findViewById(R.id.txtProductAdvance);
+        imgCategory=findViewById(R.id.imgAdvancedProduct);
         imgProduct=findViewById(R.id.imgProduct);
-        txtCategory=findViewById(R.id.txtProduct);
-        txtProduct=findViewById(R.id.txtProduct);
+        txtCategory=findViewById(R.id.txtProductAdvance);
+        txtProduct=findViewById(R.id.txtProductAdvance);
     }
 
     private void openEmployeeManagementActivity()

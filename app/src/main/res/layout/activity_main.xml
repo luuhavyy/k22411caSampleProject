@@ -10,17 +10,17 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imgEmployee"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imgCustomer"
@@ -51,7 +51,7 @@
                     app:srcCompat="@mipmap/ic_customer" />
 
                 <TextView
-                    android:id="@+id/txtProduct"
+                    android:id="@+id/txtProductAdvance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/title_main_customer"
@@ -64,29 +64,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imgCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_category" />
-
-                <TextView
-                    android:id="@+id/txtProduct"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_main_category"
-                    android:textAlignment="center"
-                    android:textColor="@color/design_default_color_error"
-                    android:textSize="20sp" />
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,18 +74,43 @@
 
                 <ImageView
                     android:id="@+id/imgProduct"
-                    android:layout_width="153dp"
-                    android:layout_height="129dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="127dp"
                     app:srcCompat="@mipmap/ic_product" />
 
                 <TextView
-                    android:id="@+id/txtProduct"
+                    android:id="@+id/txtProductAdvance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/title_main_product"
                     android:textAlignment="center"
                     android:textColor="@color/design_default_color_error"
                     android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgAdvancedProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@mipmap/ic_category" />
+
+                <TextView
+                    android:id="@+id/txtProductAdvance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_main_product_advance"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
         </TableRow>

@@ -24,7 +24,7 @@ public class CategoryManagementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_category_management);
-        addViews();
+        // addViews();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,7 +32,7 @@ public class CategoryManagementActivity extends AppCompatActivity {
         });
     }
 
-    private void addViews() {
+    /*private void addViews() {
         lvCategory = findViewById(R.id.lvCategory);
         adapter = new ArrayAdapter<>(
                 CategoryManagementActivity.this,
@@ -42,5 +42,5 @@ public class CategoryManagementActivity extends AppCompatActivity {
         adapter.addAll(listCategory.getCategories());
 
         lvCategory.setAdapter(adapter);
-    }
+    }*/
 }

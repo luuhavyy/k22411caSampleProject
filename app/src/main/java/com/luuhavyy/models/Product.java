@@ -10,16 +10,34 @@ public class Product implements Serializable {
     private  int quantity;
     private double price;
     private int cateid;
+    private int image_id;
 
     public Product() {
     }
 
-    public Product(int id, String name, int quantity, double price, int cateid) {
+    public Product(int id, String name, int quantity, double price, int cateid, int image_id) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
         this.cateid = cateid;
+        this.image_id = image_id;
+    }
+
+    public Product(int id, String name, int quantity, double price, int image_id) { // co the dua vao hoac loai bo cateid vi la foreign key
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+        this.image_id = image_id;
+    }
+
+    public int getImage_id() {
+        return image_id;
+    }
+
+    public void setImage_id(int image_id) {
+        this.image_id = image_id;
     }
 
     public int getId() {

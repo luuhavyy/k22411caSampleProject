@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_add_product"
+        android:enabled="true"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="@string/title_add_product" />
+    <item
+        android:id="@+id/menu_manage_categories"
+        android:enabled="true"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="@string/title_manage_categories" />
+    <item
+        android:id="@+id/menu_product_help"
+        android:enabled="true"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="@string/title_product_help" />
+</menu>

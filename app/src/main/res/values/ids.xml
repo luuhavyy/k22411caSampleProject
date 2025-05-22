@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvProductTitle" type="id" />
+    <item name="edtProductId" type="id" />
+    <item name="edtProductName" type="id" />
+    <item name="edtProductQuantity" type="id" />
+    <item name="edtProductPrice" type="id" />
+    <item name="edtProductCateId" type="id" />
+    <item name="edtProductImageId" type="id" />
+    <item name="btnRemoveProduct" type="id" />
+    <item name="btnSaveProduct" type="id" />
+    <item name="btnNewProduct" type="id" />
+</resources>

@@ -51,7 +51,7 @@
                     app:srcCompat="@mipmap/ic_customer" />
 
                 <TextView
-                    android:id="@+id/txtProductAdvance"
+                    android:id="@+id/txtCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/title_main_customer"
@@ -79,7 +79,7 @@
                     app:srcCompat="@mipmap/ic_product" />
 
                 <TextView
-                    android:id="@+id/txtProductAdvance"
+                    android:id="@+id/txtProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -102,7 +102,7 @@
                     app:srcCompat="@mipmap/ic_category" />
 
                 <TextView
-                    android:id="@+id/txtProductAdvance"
+                    android:id="@+id/txtAdvancedProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -117,7 +117,54 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_payment" />
+
+                <TextView
+                    android:id="@+id/txtPaymentMethod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_payment_method"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_order" />
+
+                <TextView
+                    android:id="@+id/txtOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_order"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"

@@ -1,5 +1,8 @@
 package com.luuhavyy.models;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -35,5 +38,43 @@ public class ListCustomer {
         addCustomer(new Customer(8, "Hoang", "hoang@gmail.com", "0909076595", "hoang", "123"));
         addCustomer(new Customer(9, "Kien", "kien@gmail.com", "0909076585", "kien", "123"));
         addCustomer(new Customer(10, "Linh", "linh@gmail.com", "0909076575", "linh", "123"));
+    }
+    public boolean isExisting(Customer c)
+    {
+        for(Customer cus:customers)
+        {
+            if (cus.getId()==c.getId() ||
+            cus.getEmail().equalsIgnoreCase(c.getEmail()) ||
+            cus.getPhone().equals(c.getPhone()) ||
+            cus.getUsername().equalsIgnoreCase(c.getUsername()))
+                return true;
+        }
+        return false;
+    }
+
+    public void getAllCustomers(SQLiteDatabase database)
+    {
+        Cursor cursor = database.rawQuery("SELECT * FROM Customer",
+                null);
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String phone = cursor.getString(2);
+            String email = cursor.getString(3);
+            String username = cursor.getString(4);
+            String password = cursor.getString(5);
+            int saveInfor= cursor.getInt(6);
+
+            Customer c=new Customer();
+            c.setId(id);
+            c.setName(name);
+            c.setEmail(email);
+            c.setPhone(phone);
+            c.setUsername(username);
+            c.setPassword(password);
+
+            addCustomer(c);
+        }
+        cursor.close();
     }
 }

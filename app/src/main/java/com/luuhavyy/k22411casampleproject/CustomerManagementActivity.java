@@ -1,6 +1,8 @@
 package com.luuhavyy.k22411casampleproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -30,6 +33,11 @@ public class CustomerManagementActivity extends AppCompatActivity {
     MenuItem menu_broadcast_advertising;
     MenuItem menu_new_customer;
     MenuItem menu_help;
+    final int ID_CREATE_NEW_CUSTOMER=1;
+    final int ID_UPDATE_CUSTOMER=2;
+    String DATABASE_NAME="SalesDatabase.db";
+    private static final String DB_PATH_SUFFIX = "/databases/";
+    SQLiteDatabase database=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +76,14 @@ public class CustomerManagementActivity extends AppCompatActivity {
         adapter=new ArrayAdapter<>(
                 CustomerManagementActivity.this,
                 android.R.layout.simple_list_item_1);
-        lc.generate_sample_dataset(); // de goi len bo nho man hinh
-        adapter.addAll(lc.getCustomers()); // de no tu dong ve
+
+        // lc.generate_sample_dataset(); // de goi len bo nho man hinh // bo gia lap
+        // lay dtb thuc
+        database = openOrCreateDatabase(DATABASE_NAME,
+                Context.MODE_PRIVATE, null);
+
+        lc.getAllCustomers(database);
+        adapter.addAll(lc.getCustomers());
 
         lvCustomer.setAdapter(adapter);
 
@@ -109,6 +123,36 @@ public class CustomerManagementActivity extends AppCompatActivity {
 
 
     private void openNewCustomerActivity() {
-        // hom sau lam 26/5 - rat kho
+        Intent intent=new Intent(CustomerManagementActivity.this,
+                CustomerDetailActivity.class);
+
+        //startActivity(intent);
+        startActivityForResult(intent,ID_CREATE_NEW_CUSTOMER); //b1
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==ID_CREATE_NEW_CUSTOMER && resultCode==1000)
+        {
+        //lay ket qua ra;
+        Customer c= (Customer) data.getSerializableExtra("NEW_CUSTOMER");
+        //toi day co 2 th luu moi hay update
+            process_save_customer(c);
+        }
+
+    }
+
+    private void process_save_customer(Customer c) {
+        boolean result=lc.isExisting(c);
+        if(result==true)//tuc la da ton tai
+            return;//khong them moi
+            //con neu ta muon cap nhat thi viet tiep code cap nhat
+        // cac ma lenh duoi day la them moi customer
+        lc.addCustomer(c);
+        adapter.clear();
+        adapter.addAll(lc.getCustomers());
     }
 }

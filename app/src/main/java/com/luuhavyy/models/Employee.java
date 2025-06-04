@@ -68,4 +68,11 @@ public class Employee {
     public void setSaveinfor(boolean saveinfor) {
         this.saveinfor = saveinfor;
     }
+
+    public void setId(int id) {
+    }
 }
+
+    
+
+   

@@ -18,10 +18,15 @@ public class MainActivity extends AppCompatActivity {
     TextView txtEmployee;
     ImageView imgCustomer;
     TextView txtCustomer;
-    ImageView imgCategory;
     ImageView imgProduct;
     TextView txtProduct;
-    TextView txtCategory;
+    TextView txtAdvancedProduct;
+    ImageView imgAdvancedProduct;
+    TextView txtPaymentMethod;
+    ImageView imgPaymentMethod;
+    TextView txtOrder;
+    ImageView imgOrder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,18 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 openCustomerManagementActivity();
             }
         });
-        imgCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCategoryManagementActivity();
-            }
-        });
-        txtCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCategoryManagementActivity();
-            }
-        });
+
         imgProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,17 +81,59 @@ public class MainActivity extends AppCompatActivity {
                 openProductManagementActivity();
             }
         });
+
+        txtAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAdvancedProductManagementActivity();
+            }
+        });
+
+        imgAdvancedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAdvancedProductManagementActivity();
+            }
+        });
+        txtPaymentMethod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPaymentMethodActivity();
+            }
+        });
+        imgPaymentMethod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPaymentMethodActivity();
+            }
+        });
+    }
+
+    private void openPaymentMethodActivity() {
+        Intent intent=new Intent(MainActivity.this, PaymentMethodActivity.class);
+        startActivity(intent);
+    }
+
+    private void openAdvancedProductManagementActivity() {
+        Intent intent=new Intent(MainActivity.this, AdvancedProductManagementActivity.class);
+        startActivity(intent);
     }
 
     private void addViews() {
         imgEmployee=findViewById(R.id.imgEmployee);
         txtEmployee=findViewById(R.id.txtEmployee);
         imgCustomer=findViewById(R.id.imgCustomer);
-        txtCustomer=findViewById(R.id.txtProductAdvance);
-        imgCategory=findViewById(R.id.imgAdvancedProduct);
+        txtCustomer=findViewById(R.id.txtCustomer);
         imgProduct=findViewById(R.id.imgProduct);
-        txtCategory=findViewById(R.id.txtProductAdvance);
-        txtProduct=findViewById(R.id.txtProductAdvance);
+        txtProduct=findViewById(R.id.txtProduct);
+        txtAdvancedProduct=findViewById(R.id.txtAdvancedProduct);
+        imgAdvancedProduct=findViewById(R.id.imgAdvancedProduct);
+
+        txtPaymentMethod=findViewById(R.id.txtPaymentMethod);
+        imgPaymentMethod=findViewById(R.id.imgPayment);
+        txtOrder=findViewById(R.id.txtOrder);
+        imgOrder=findViewById(R.id.imgOrder);
+
     }
 
     private void openEmployeeManagementActivity()

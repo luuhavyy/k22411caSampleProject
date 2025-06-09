@@ -1,29 +1,26 @@
 package com.luuhavyy.models;
 
-public class OrderDetails {
-    private int Id;
-    private int orderId;
+public class OrderDetails extends Orders{
+    private int id;
     private int productId;
+    private String productName;
     private int quantity;
     private double price;
     private double discount;
     private double VAT;
-    private double totalValue;
+    private double TotalValue;
 
+    // Constructor rỗng (nếu cần)
+    public OrderDetails() {
+    }
+
+    // Getter - Setter
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+        this.id = id;
     }
 
     public int getProductId() {
@@ -32,6 +29,14 @@ public class OrderDetails {
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getQuantity() {
@@ -66,9 +71,16 @@ public class OrderDetails {
         this.VAT = VAT;
     }
 
-    public double getTotalValue() { // kh co set totalvalue -> lap cthuc cho get totalvalue
-        totalValue=quantity*price * (1 - discount) * (1+VAT);
-        return totalValue;
+    public double getTotalValue() {
+        return TotalValue;
     }
 
+    public void setTotalValue(double totalValue) {
+        TotalValue = totalValue;
+    }
+
+//    // TotalValue tính theo công thức: quantity * price * (1 - discount) * (1 + VAT)
+//    public double getTotalValue() {
+//        return quantity * price * (1 - discount) * (1 + VAT);
+//    }
 }

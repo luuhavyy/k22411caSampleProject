@@ -12,7 +12,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.luuhavyy.models.OrdersViewer;
+
 public class MainActivity extends AppCompatActivity {
+
 
     ImageView imgEmployee;
     TextView txtEmployee;
@@ -107,6 +110,18 @@ public class MainActivity extends AppCompatActivity {
                 openPaymentMethodActivity();
             }
         });
+        txtOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openOrdersViewerActivity();
+            }
+        });
+        imgOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openOrdersViewerActivity();
+            }
+        });
     }
 
     private void openPaymentMethodActivity() {
@@ -134,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
         txtOrder=findViewById(R.id.txtOrder);
         imgOrder=findViewById(R.id.imgOrder);
 
+
+
     }
 
     private void openEmployeeManagementActivity()
@@ -151,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this, ProductManagementActivity.class);
         startActivity(intent);
     }
-    private void openCategoryManagementActivity()
+    private void openOrdersViewerActivity()
     {
-        Intent intent=new Intent(MainActivity.this, CategoryManagementActivity.class);
+        Intent intent=new Intent(MainActivity.this, OrdersViewerActivity.class);
         startActivity(intent);
     }
 

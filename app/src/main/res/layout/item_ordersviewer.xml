@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtOrderCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EF9DA5"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtOrderDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F4BCA6"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtEmployeeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6EEAA"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtCustomerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C4FDB1"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtTotalValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B9FBF3"
+        android:text="TextView" />
+</LinearLayout>

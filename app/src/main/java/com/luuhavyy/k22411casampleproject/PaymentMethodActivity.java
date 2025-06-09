@@ -13,8 +13,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.luuhavyy.adapters.PaymentMethodAdapter;
+import com.luuhavyy.connectors.PaymentMethodConnector;
+import com.luuhavyy.connectors.SQLiteConnector;
 import com.luuhavyy.models.ListPaymentMethod;
 import com.luuhavyy.models.PaymentMethod;
+
+import java.util.ArrayList;
 
 public class PaymentMethodActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
     String DATABASE_NAME="SalesDatabase.db";
     private static final String DB_PATH_SUFFIX = "/databases/";
     SQLiteDatabase database=null;
+    PaymentMethodConnector pmc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +52,18 @@ public class PaymentMethodActivity extends AppCompatActivity {
         lvPaymentMethod.setAdapter(adapter);
         lpm=new ListPaymentMethod();
         //lpm.gen_payment_method();
-        database = openOrCreateDatabase(DATABASE_NAME,
+
+        //CACH 1: dung ket noi sql o file model/listpm
+        /*database = openOrCreateDatabase(DATABASE_NAME,
                 Context.MODE_PRIVATE, null);
         lpm.getAllPaymentMethod(database);
-        adapter.addAll(lpm.getPaymentMethods());
+        adapter.addAll(lpm.getPaymentMethods());*/
+
+        //CACH 2: dung connector
+        pmc=new PaymentMethodConnector();
+        SQLiteConnector connector=new SQLiteConnector(this);
+        ArrayList<PaymentMethod>datasets=pmc.getAllPaymentMethods(connector.openDatabase());
+        adapter.addAll(datasets);
+
     }
 }

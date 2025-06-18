@@ -56,6 +56,7 @@ public class ListCustomer {
     {
         Cursor cursor = database.rawQuery("SELECT * FROM Customer",
                 null);
+        customers.clear();
         while(cursor.moveToNext()){
             int id = cursor.getInt(0);
             String name = cursor.getString(1);

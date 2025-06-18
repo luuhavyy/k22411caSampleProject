@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.luuhavyy.models.Customer;
 
 public class CustomerDetailActivity extends AppCompatActivity {
+    TextView txtCusId;
     EditText edt_customer_id;
     EditText edt_customer_name;
     EditText edt_customer_email;
@@ -22,6 +24,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
     EditText edt_customer_phone;
     EditText edt_customer_password;
     Button bthNew, btnSave, btnRemove;
+    int type=0; //ben kia truyen qua
+    //type =0 --> xem chi tiet cus
+    //type =1 --> them moi cus
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +65,18 @@ public class CustomerDetailActivity extends AppCompatActivity {
     }
 
     private void do_remove() {
-
+        int id=Integer.parseInt(edt_customer_id.getText().toString());
+        Intent intent=getIntent();
+        intent.putExtra("CUSTOMER_ID_REMOVE",id);
+        setResult(9000,intent);
+        finish();
     }
 
     private void do_save() {
         // khoi tao doi tuong tu giao dien
         Customer c=new Customer();
-        c.setId(Integer.parseInt(edt_customer_id.getText().toString()));
+        if (type==0) //vi xem chi tiet nen xem dc id
+            c.setId(Integer.parseInt(edt_customer_id.getText().toString()));
         c.setName(edt_customer_name.getText().toString());
         c.setEmail(edt_customer_email.getText().toString());
         c.setUsername(edt_customer_username.getText().toString());
@@ -78,6 +88,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         Intent intent=getIntent();
         //dong goi Customer vao intent
         intent.putExtra("NEW_CUSTOMER", c);
+        intent.putExtra("TYPE",type);
         //dong dau de gui du lieu ve
         setResult(1000, intent);
 
@@ -93,6 +104,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
 
     private void addViews() {
+        txtCusId=findViewById(R.id.txtCusId);
         edt_customer_id=findViewById(R.id.edtCustomerId);
         edt_customer_name=findViewById(R.id.edtCustomerName);
         edt_customer_email=findViewById(R.id.edtCustomerEmail);
@@ -109,12 +121,17 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private void display_customer_details() {
         // lay intent
         Intent intent=getIntent();
-        // Lay customer lie n quan ten bien dat trong intent
+        type=intent.getIntExtra("TYPE",1);
+        // Lay customer lien quan ten bien dat trong intent
         Customer c = (Customer) intent.getSerializableExtra("SELECTED_CUSTOMER");
 
-        if (c==null) // phai co kh no bao loi
+        if (c==null) // phai co kh no bao loi - TUC LA THEM MOI
+            //them moi nen luc nay an o nhap ma KH di
+        {
+            edt_customer_id.setVisibility(View.INVISIBLE);
+            txtCusId.setVisibility(View.INVISIBLE);
             return;
-
+        }
         // neu truyen so vao thi can dua ve chuoi no moi chay dc
         edt_customer_id.setText(c.getId()+"");
         // kh can chuoi ne

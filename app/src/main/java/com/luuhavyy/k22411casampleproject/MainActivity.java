@@ -12,11 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.luuhavyy.models.OrdersViewer;
-
 public class MainActivity extends AppCompatActivity {
-
-
+    ImageView imgContact;
+    TextView txtContact;
     ImageView imgEmployee;
     TextView txtEmployee;
     ImageView imgCustomer;
@@ -42,6 +40,27 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    private void addViews() {
+        imgContact=findViewById(R.id.imgContact);
+        txtContact=findViewById(R.id.txtContact);
+
+        imgEmployee=findViewById(R.id.imgEmployee);
+        txtEmployee=findViewById(R.id.txtEmployee);
+        imgCustomer=findViewById(R.id.imgCustomer);
+        txtCustomer=findViewById(R.id.txtCustomer);
+        imgProduct=findViewById(R.id.imgProduct);
+        txtProduct=findViewById(R.id.txtProduct);
+        txtAdvancedProduct=findViewById(R.id.txtAdvancedProduct);
+        imgAdvancedProduct=findViewById(R.id.imgAdvancedProduct);
+
+        txtPaymentMethod=findViewById(R.id.txtPaymentMethod);
+        imgPaymentMethod=findViewById(R.id.imgPaymentMethod);
+        txtOrder=findViewById(R.id.txtOrder);
+        imgOrder=findViewById(R.id.imgOrder);
+
+
+
     }
 
     private void addEvents() {
@@ -122,6 +141,25 @@ public class MainActivity extends AppCompatActivity {
                 openOrdersViewerActivity();
             }
         });
+
+        imgContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTelephonyActivity();
+            }
+        });
+
+        txtContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTelephonyActivity();
+            }
+        });
+    }
+
+    private void openTelephonyActivity() {
+        Intent intent=new Intent(MainActivity.this, TelephonyActivity.class);
+        startActivity(intent);
     }
 
     private void openPaymentMethodActivity() {
@@ -134,24 +172,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addViews() {
-        imgEmployee=findViewById(R.id.imgEmployee);
-        txtEmployee=findViewById(R.id.txtEmployee);
-        imgCustomer=findViewById(R.id.imgCustomer);
-        txtCustomer=findViewById(R.id.txtCustomer);
-        imgProduct=findViewById(R.id.imgProduct);
-        txtProduct=findViewById(R.id.txtProduct);
-        txtAdvancedProduct=findViewById(R.id.txtAdvancedProduct);
-        imgAdvancedProduct=findViewById(R.id.imgAdvancedProduct);
-
-        txtPaymentMethod=findViewById(R.id.txtPaymentMethod);
-        imgPaymentMethod=findViewById(R.id.imgPayment);
-        txtOrder=findViewById(R.id.txtOrder);
-        imgOrder=findViewById(R.id.imgOrder);
-
-
-
-    }
 
     private void openEmployeeManagementActivity()
     {

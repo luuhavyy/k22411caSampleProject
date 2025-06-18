@@ -48,6 +48,14 @@
     <string name="title_product_image_id">Image ID</string>
     <string name="title_payment_method">Payment Method</string>
     <string name="title_order">Order</string>
+    <string name="title_contacts">Contacts</string>
+    <string name="title_phone">Phone:</string>
+    <string name="title_bodytext">Body:</string>
 
-
+    <!-- Menu -->
+    <string name="menu_all">Tất cả</string>
+    <string name="menu_viettel">Viettel</string>
+    <string name="menu_mobifone">Mobifone</string>
+    <string name="menu_vinaphone">Vinaphone</string>
+    <string name="menu_vietnamobile">Vietnamobile</string>
 </resources>

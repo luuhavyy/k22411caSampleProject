@@ -1,5 +1,6 @@
 package com.luuhavyy.k22411casampleproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -67,7 +68,10 @@ public class CustomerManagementActivity extends AppCompatActivity {
         Intent intent=new Intent(CustomerManagementActivity.this,
                 CustomerDetailActivity.class);
         intent.putExtra("SELECTED_CUSTOMER", c);
-        startActivity(intent);
+        intent.putExtra("TYPE",0);
+//        startActivity(intent);
+        startActivityForResult(intent,ID_CREATE_NEW_CUSTOMER);
+
 
     }
 
@@ -125,6 +129,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
     private void openNewCustomerActivity() {
         Intent intent=new Intent(CustomerManagementActivity.this,
                 CustomerDetailActivity.class);
+        intent.putExtra("TYPE",1);
 
         //startActivity(intent);
         startActivityForResult(intent,ID_CREATE_NEW_CUSTOMER); //b1
@@ -137,22 +142,84 @@ public class CustomerManagementActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==ID_CREATE_NEW_CUSTOMER && resultCode==1000)
         {
-        //lay ket qua ra;
-        Customer c= (Customer) data.getSerializableExtra("NEW_CUSTOMER");
-        //toi day co 2 th luu moi hay update
-            process_save_customer(c);
+            //lay ket qua ra;
+            Customer c= (Customer) data.getSerializableExtra("NEW_CUSTOMER");
+            //toi day co 2 th luu moi hay update
+            int type=data.getIntExtra("TYPE",1); //them moi
+            if (type==1)
+                process_save_customer(c);
+            else
+                process_save_update_customer(c);
+        }
+        else if (requestCode==ID_CREATE_NEW_CUSTOMER && resultCode==9000) {
+            int cust_id=data.getIntExtra("CUSTOMER_ID_REMOVE",-1);
+            if(cust_id!=-1)
+            {
+                //xu ly xoa customer co id la cust_id
+                process_remove_customer(cust_id);
+            }
         }
 
     }
 
+    private void process_remove_customer(int custId) {
+        int id=database.delete("Customer","Id=?", new String[]{custId+""});
+        if (id>0)
+        {
+            lc.getAllCustomers(database);
+            adapter.clear();
+            adapter.addAll(lc.getCustomers());
+        }
+    }
+
+    private void process_save_update_customer(Customer c) {
+        ContentValues values=new ContentValues();
+        values.put("Name", c.getName());
+        values.put("Phone",c.getPhone());
+        values.put("Email",c.getEmail());
+        values.put("UserName",c.getUsername());
+        values.put("Password",c.getPassword());
+        values.put("SaceInfor",0);
+
+        long id=database.update("Customer",values, "Id=?",new String[]{c.getId()+""});
+
+        if(id>0) //la them thanh cong
+        {
+            //nap lai du lieu tu bang customer len giao dien
+            lc.getCustomers().clear();
+            adapter.clear();
+            lc.getAllCustomers(database);
+            adapter.addAll(lc.getCustomers());
+        }
+    }
+
     private void process_save_customer(Customer c) {
-        boolean result=lc.isExisting(c);
+        /*boolean result=lc.isExisting(c);
         if(result==true)//tuc la da ton tai
-            return;//khong them moi
+            return;//khong them moi*/
             //con neu ta muon cap nhat thi viet tiep code cap nhat
-        // cac ma lenh duoi day la them moi customer
+
+        /*// cac ma lenh duoi day la them moi customer - CMT DO KH DUNG NUA MA SAVE VAO SQLITE
         lc.addCustomer(c);
         adapter.clear();
-        adapter.addAll(lc.getCustomers());
+        adapter.addAll(lc.getCustomers());*/
+
+        //Xu ly them Customer (c) vao CSDL SQLite
+        ContentValues values=new ContentValues();
+        values.put("Name", c.getName());
+        values.put("Phone",c.getPhone());
+        values.put("Email",c.getEmail());
+        values.put("UserName",c.getUsername());
+        values.put("Password",c.getPassword());
+        values.put("SaceInfor",0);
+
+        long id=database.insert("Customer",null,values);
+        if(id>0) //la them thanh cong
+        {
+            //nap lai du lieu tu bang customer len giao dien
+            adapter.clear();
+            lc.getAllCustomers(database);
+            adapter.addAll(lc.getCustomers());
+        }
     }
 }

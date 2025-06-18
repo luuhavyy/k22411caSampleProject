@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_all"
+        android:title="@string/menu_all"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_viettel"
+        android:title="@string/menu_viettel"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_mobifone"
+        android:title="@string/menu_mobifone"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_vinaphone"
+        android:title="@string/menu_vinaphone"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_vietnamobile"
+        android:title="@string/menu_vietnamobile"
+        app:showAsAction="never" />
+</menu>

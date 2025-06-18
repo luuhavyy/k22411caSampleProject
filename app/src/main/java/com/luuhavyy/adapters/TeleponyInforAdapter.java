@@ -50,7 +50,6 @@ public class TeleponyInforAdapter extends ArrayAdapter<TelephonyInfor> {
         }
     }
 
-    // ✅ Hiển thị layout và gán dữ liệu
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -95,11 +94,14 @@ public class TeleponyInforAdapter extends ArrayAdapter<TelephonyInfor> {
 
     public void filterList(String carrier) {
         clear();
-        for (TelephonyInfor ti : originalList) {
+        List<TelephonyInfor> snapshot = new ArrayList<>(originalList);
+
+        for (TelephonyInfor ti : snapshot) {
             if (NetworkUtils.getCarrier(ti.getPhoneNumber()).equals(carrier)) {
-                add(ti);
+                super.add(ti);
             }
         }
+
         notifyDataSetChanged();
     }
 

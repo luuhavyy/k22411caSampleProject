@@ -14,12 +14,21 @@ public class NetworkUtils {
     }
 
     private static String getPrefix(String phone) {
+        // Xóa dấu +, khoảng trắng, dấu -,... giữ lại số
         phone = phone.replaceAll("[^0-9]", "");
+
+        // Nếu bắt đầu bằng 84 → đổi về 0
+        if (phone.startsWith("84")) {
+            phone = "0" + phone.substring(2);
+        }
+
+        // Lấy 3 số đầu tiên
         if (phone.length() >= 10) {
-            return phone.substring(phone.length() - 10, phone.length() - 7);
+            return phone.substring(0, 3);
         }
         return null;
     }
+
 
     public static boolean isViettel(String prefix) {
         return prefix.equals("086") || prefix.equals("096") || prefix.equals("097") || prefix.equals("098") ||
